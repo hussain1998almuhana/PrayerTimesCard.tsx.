@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>نهج النور - أوقات الصلاة والقرآن</title>
+    <meta name="theme-color" content="#022C22" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2913/2913474.png" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&family=Almarai:wght@300;400;700;800&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'shia-green': '#022C22',
+              'shia-gold': '#D4AF37',
+              'shia-sky': '#0EA5E9',
+              'shia-gold-light': '#F5E6BE',
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --safe-area-inset-top: env(safe-area-inset-top);
+        --safe-area-inset-bottom: env(safe-area-inset-bottom);
+        --app-easing: cubic-bezier(0.4, 0, 0.2, 1);
+        --color-green: #022C22;
+        --color-gold: #D4AF37;
+        --color-sky: #0EA5E9;
+      }
+      body {
+        font-family: 'Almarai', sans-serif;
+        background-color: var(--color-green);
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        overflow-x: hidden;
+      }
+      .quran-text {
+        font-family: 'Amiri', serif;
+      }
+      .spiritual-heading {
+        font-family: 'Reem Kufi', sans-serif;
+      }
+      .selectable-text {
+        -webkit-user-select: text;
+        user-select: text;
+      }
+      button, a {
+        touch-action: manipulation;
+        transition: transform 0.2s var(--app-easing), opacity 0.2s var(--app-easing), filter 0.2s var(--app-easing);
+      }
+      button:active {
+        transform: scale(0.96);
+        filter: brightness(0.9);
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      #root {
+        padding-top: var(--safe-area-inset-top);
+        padding-bottom: var(--safe-area-inset-bottom);
+        min-height: 100vh;
+      }
+      .glass-card {
+        background: rgba(2, 44, 34, 0.6);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+      }
+      .gold-border {
+        border: 0.5px solid rgba(212, 175, 55, 0.3);
+      }
+      .sky-glow {
+        box-shadow: 0 0 30px rgba(14, 165, 233, 0.2);
+      }
+      .gold-glow {
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+      }
+
+      /* Transitions & Animations */
+      .page-transition-enter {
+        animation: pageFadeIn 0.5s var(--app-easing) forwards;
+      }
+      .view-transition-slide-up {
+        animation: slideUpFadeIn 0.6s var(--app-easing) forwards;
+      }
+      
+      @keyframes pageFadeIn {
+        from { opacity: 0; transform: scale(1.02) translateY(5px); filter: blur(4px); }
+        to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+      }
+
+      @keyframes slideUpFadeIn {
+        from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+        to { opacity: 1; transform: translateY(0); filter: blur(0); }
+      }
+
+      .stagger-1 { animation-delay: 0.1s; }
+      .stagger-2 { animation-delay: 0.2s; }
+      .stagger-3 { animation-delay: 0.3s; }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "react": "https://esm.sh/react@^19.2.4",
+        "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.3",
+        "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+        "vite": "https://esm.sh/vite@^7.3.1",
+        "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
